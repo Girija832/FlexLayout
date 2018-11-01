@@ -1,0 +1,38 @@
+<div class="signup-form-container">
+  <div class="form-container">
+    <form #signupForm="ngForm" autocomplete="false" class="form" (submit)="loginUser($event)">
+      <h4 class="text-center">Login</h4>
+      <hr>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" ngModel #email="ngModel" email="true" name="email" required id="email" type="text">
+        <div class="form-error" *ngIf="email.touched && !email.valid">
+          <div *ngIf="email.errors.required">
+            Email is required
+          </div>
+          <div *ngIf="email.errors.email && !email.errors.required">
+            Invalid Email address.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" ngModel #password="ngModel" minlength="4" name="password" required autocomplete="new-password" id="password" type="password">
+        <div class="form-error" *ngIf="password.touched && !password.valid">
+          <div *ngIf="password.errors.required">
+            Password is required
+          </div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 4 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <button [disabled]="signupForm.invalid" class="btn btn-primary submit-btn" type="submit">SIGN IN</button>
+        <p class="alter-way">
+          <a [routerLink]="'/signup'">Don't have an account? Sign Up Now</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="text-center">Employee Details</h1>
+  <div class="text-right">
+    <button class="btn btn-default" type="button" (click)="logout()">Logout</button>
+  </div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let data of allData">
+        <th scope="row">{{data.id}}</th>
+        <td>{{data.name}}</td>
+        <td>{{data.username}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.phone}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-right">
+    <button class="btn btn-default" type="button" (click)="goBack()">Go Back</button>
+  </div>
+</div>
